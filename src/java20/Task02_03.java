@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author Marenkov
  */
 
-public class Task02 {
+public class Task02_03 {
 
     public static void main(String[] args) {
 
