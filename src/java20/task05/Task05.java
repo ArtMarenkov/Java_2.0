@@ -31,39 +31,8 @@ public class Task05 {
 
             String oper = scanner.next();
 
-            double z;
-
-            switch (oper) {
-                case "+":
-                    Sum sum = new Sum(x, y);
-                    z = sum.sum();
-                    System.out.printf("Результат: %.4f\n", z);
-                    break;
-                case "-":
-                    Substr substr = new Substr(x, y);
-                    z = substr.substr();
-                    System.out.printf("Результат: %.4f\n", z);
-                    break;
-                case "*":
-                    Mult mult = new Mult(x, y);
-                    z = mult.mult();
-                    System.out.printf("Результат: %.4f\n", z);
-                    break;
-                case "/":
-
-                    if (y == 0)
-                        System.out.println("На ноль делить нельзя!");
-                    else {
-                        Divis divis = new Divis(x, y);
-                        z = divis.divis();
-                        System.out.printf("Результат: %.4f\n", z);
-                    }
-                    break;
-                default:
-                    System.out.println("Некорректная операция.");
-                    break;
-            }
-
+            Calc calc = new Calc(x, y, oper);
+            System.out.printf("Результат: %.4f\n", calc.calculation());
             scanner.close();
 
         }
