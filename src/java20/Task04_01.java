@@ -36,7 +36,7 @@ public class Task04_01 {
         //поиск минимального положительного элемента массива
         for (int j = 0; j < arr.length; j++) {
 
-            if (minpos >= 0) {
+            if (minpos > 0) {
 
                 if (arr[j] >= 0) {
                     if (arr[j] < minpos) {
