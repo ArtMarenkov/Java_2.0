@@ -11,40 +11,28 @@ import java.util.Scanner;
 public class Shop {
 
     public static void main(String[] args) {
-        System.out.println("Choose sweet from the list: " + SweetGenerator.CANDY + "," + SweetGenerator.JELLYBEAN + " or " + SweetGenerator.CHOCOLATE);
-        System.out.println("If you're done then type 'ok'");
-        GiftConstructor giftConstructor = new GiftConstructor();
+        Candy candy1 = new Candy("Черноголовка", 100.00, 29.99, "cherry");
+        Candy candy2 = new Candy("Шипучка",100.00, 29.99, "orange");
+        Jellybean jelly1 = new Jellybean("Мишки",120.20, 60.00, "bears");
+        Jellybean jelly2 = new Jellybean("Червячки",150.00, 65.00, "worms");
+        Chocolate choc1 = new Chocolate("Тоблерон",90.10, 260.00, "Switz");
+        Chocolate choc2 = new Chocolate("Алёнка",90.00, 120.00, "Rus");
 
-        Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNextLine()) {
-            String answer = scanner.nextLine();
-            if (answer.equals("ok")) {
-                scanner.close();
-                break;
-            }
+        Sweets[] gift = {candy1, candy2, jelly1, jelly2, choc1, choc2};
 
-            if (!answer.equalsIgnoreCase(SweetGenerator.CANDY) && !answer.equalsIgnoreCase(SweetGenerator.JELLYBEAN) && !answer.equalsIgnoreCase(SweetGenerator.CHOCOLATE)) {
-                System.out.println("Sorry, there is no such sweet as " + answer);
-            }
+        Double totalweight = 0.0;
+        Double totalprice = 0.0;
 
-            switch (answer.toLowerCase()) {
-                case SweetGenerator.CANDY:
-                    giftConstructor.addSweetToGift(SweetGenerator.getCandy());
-                    break;
-                case SweetGenerator.JELLYBEAN:
-                    giftConstructor.addSweetToGift(SweetGenerator.getJellybean());
-                    break;
-                case SweetGenerator.CHOCOLATE:
-                    giftConstructor.addSweetToGift(SweetGenerator.getChocolate());
-                    break;
-            }
+        System.out.println("Ваш подарок состоит из:");
+
+        for (Sweets someSweets : gift) {
+            System.out.println(someSweets.toString());
+            totalweight += someSweets.getWeight();
+            totalprice += someSweets.getPrice();
+
         }
-
-        System.out.println("Your gift is: ");
-        for (Sweet sweet : giftConstructor.getGift()){
-            System.out.println(sweet.toString());
-        }
-        System.out.println("Total Cost: " + giftConstructor.getTotalCost());
-        System.out.println("Total Weight: " + giftConstructor.getTotalWeight());
+        System.out.println();
+        System.out.println("Общая масса подарка: " + totalweight);
+        System.out.println("Общая стоимость подарка: "+ totalprice);
     }
 }
