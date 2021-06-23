@@ -1,4 +1,4 @@
-package java20.task05;
+package java20.Task05;
 
 public class Calc {
 
