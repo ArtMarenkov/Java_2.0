@@ -4,6 +4,11 @@ import java.util.*;
 
 public class WordHelper {
     public static List<String> getListFromString(String text) {
+
+        if (text.trim().length() == 0) {
+            throw new AssertionError("Файл пустой");
+        }
+
         return Arrays.asList(text.split(" "));
     }
 
