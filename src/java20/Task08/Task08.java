@@ -1,6 +1,7 @@
 package java20.Task08;
 
 import java20.Task07.Calc_try_catch;
+import java20.Task07.Task07;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -67,8 +68,14 @@ public class Task08 {
     @Test
     public void testdivisionzero() { // Проверка деления на ноль.
         Calc_try_catch calc = new Calc_try_catch(12.0, 0.0, "/");
-        calc.calculation();
+        String str = null;
+        try {
+            calc.calculation();
+        }
+        catch (IllegalArgumentException e) {
+            str = e.getMessage();
+        }
         String expected = "На ноль делить нельзя.";
-        Assert.assertEquals(expected, Calc_try_catch.str);
+        Assert.assertEquals(expected, str);
     }
 }
