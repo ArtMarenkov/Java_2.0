@@ -12,8 +12,6 @@ public class Calc_try_catch {
     private Double param2;
     private String oper;
 
-    public static String str;
-
     public Calc_try_catch(Double param1, Double param2, String oper) {
         this.param1 = param1;
         this.param2 = param2;
@@ -36,18 +34,12 @@ public class Calc_try_catch {
                 result = param1 * param2;
                 break;
             case "/":
-                try {
-                    if (param2 == 0.0) {
-                        throw new IllegalArgumentException("На ноль делить нельзя.");
-                    } else {
-                        result = param1 / param2;
-                        break;
-                    }
-                } catch (IllegalArgumentException e) {
-                    str = e.getMessage();
-                    System.err.println(str);
+                if (param2 == 0.0) {
+                    throw new IllegalArgumentException("На ноль делить нельзя.");
+                } else {
+                    result = param1 / param2;
+                    break;
                 }
-                break;
             default:
                 throw new IllegalArgumentException("Некорректная операция.");
         }

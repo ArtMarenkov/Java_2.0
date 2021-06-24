@@ -13,6 +13,8 @@ import java.util.Scanner;
 
 public class Task07 {
 
+    //public static String str;
+
     public static void main(String[] args) {
 
         Double x, y;
@@ -48,6 +50,13 @@ public class Task07 {
         String oper = scanner.next();
 
         Calc_try_catch calcTrycatch = new Calc_try_catch(x, y, oper);
+        try {
+            calcTrycatch.calculation();
+        }
+        catch (IllegalArgumentException e) {
+            //str = e.getMessage();
+            System.err.println(e.getMessage());
+        }
         System.out.printf("Результат: %.4f\n", calcTrycatch.calculation());
         scanner.close();
     }
