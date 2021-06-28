@@ -64,18 +64,9 @@ public class Task08 {
         Assert.assertEquals(expected, calc.calculation());
     }
 
-
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testdivisionzero() { // Проверка деления на ноль.
         Calc_try_catch calc = new Calc_try_catch(12.0, 0.0, "/");
-        String str = null;
-        try {
-            calc.calculation();
-        }
-        catch (IllegalArgumentException e) {
-            str = e.getMessage();
-        }
-        String expected = "На ноль делить нельзя.";
-        Assert.assertEquals(expected, str);
+        calc.calculation();
     }
 }
